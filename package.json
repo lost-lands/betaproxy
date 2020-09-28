@@ -1,0 +1,23 @@
+{
+  "name": "betaproxy",
+  "version": "1.0.0",
+  "description": "Simple HTTP proxy extracted from lost-lands/betalauncher for use in other launchers and servers",
+  "main": "proxy.js",
+  "scripts": {
+    "start": "node proxy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lost-lands/betaproxy.git"
+  },
+  "author": "DoubleCheck",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lost-lands/betaproxy/issues"
+  },
+  "homepage": "https://github.com/lost-lands/betaproxy#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "request": "^2.88.2"
+  }
+}
