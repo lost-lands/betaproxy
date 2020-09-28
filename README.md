@@ -1,7 +1,7 @@
 # Beta Proxy
 Simple HTTP proxy extracted from lost-lands/betalauncher for use in external launchers and servers
 
-To use, simply clone the repository, edit the port in proxy.js, and run `node proxy`.
+To use, simply clone the repository, edit the port in proxy.js, and then run `npm install` and `npm start`
 
 To use on clients and servers, pass the JVM arguments:
 ```
