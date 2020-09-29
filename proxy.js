@@ -26,7 +26,7 @@ app.get('/game/checkserver.jsp', (req, res) => {
     //Forward request to the proper session servers
     request(`http://session.minecraft.net/game/checkserver.jsp?user=${req.query.user}&serverId=${req.query.serverId}`).pipe(res);
 })
-app.get('/MinecraftSkins/:username', (req, res) => {
+app.get(['/MinecraftSkins/:username', '/skin/:username'], (req, res) => {
     console.log('Getting skin for '+req.params.username.slice(0, -4));
 
     //Forward skin request to minotar to fix skins
@@ -39,7 +39,6 @@ app.get('/MinecraftResources/*', (req, res) => {
     That, however, does not exist anymore and has been moved to https://resources.download.minecraft.net
     This has been semi-fixed by Mojang. The client itself used to download these assets but now that's handled
     by the launcher since the old URL returns a 403. 
-
     This route just serves as a way to prevent console spam from multiple java.io.IOException from 403 response codes
     from the old URL.
     */
