@@ -1,11 +1,21 @@
 # Beta Proxy
-Simple HTTP proxy extracted from lost-lands/betalauncher for use in external launchers and servers
+Simple HTTP Proxy for fixing server join sessions, skins, and cloaks (capes) in Minecraft Beta versions. There is both a NodeJS script or a nginx vhost that can be used.
 
-To use, simply clone the repository, edit the port in proxy.js, and then run `npm install` and `npm start`
+## Usage
+
+### NodeJS
+
+To use, simply clone the repository, switch to the `node` directory, edit the port in proxy.js, and then run `npm install` and `npm start`
+
+### NGINX
+
+To use, download the vhost file in the nginx directory of this repository. Upload it to your nginx server, edit the port if you'd like, and restart.
+
+### Using the Proxy in clients and servers
 
 To use on clients and servers, pass the JVM arguments:
 ```
--Dhttp.proxyHost=localhost
+-Dhttp.proxyHost={IP}
 -Dhttp.proxyPort={PORT}
 ```
-Replacing {PORT} with the port you set in proxy.js and localhost to the IP of the proxy if not running on the same machine. 
+Replacing {PORT} with the port you set in proxy.js and {IP} with the IP of the proxy.
