@@ -32,11 +32,17 @@ app.get(['/MinecraftSkins/:username', '/skin/:username'], (req, res) => {
     //Forward skin request to minotar to fix skins
     request('https://minotar.net/skin/'+req.params.username).pipe(res);
 })
+app.get(['/cloak/get.jsp'], (req, res) => {
+    console.log('Getting cloak for '+req.query.user);
+
+    //Forward cloak request to Lost Lands' Cloak API to fix cloaks
+    request('http://cloaks.lostlands.co/get.php?user='+req.query.user).pipe(res);
+})
 
 app.get('*', (req, res) => { //Deny all other HTTP requests
     res.send(null);
 })
 
 app.listen(port, () => {
-  console.log(`Proxy server running on port ${port}`)
+  console.log(`Beta proxy server running on port ${port}`)
 })
