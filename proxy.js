@@ -26,7 +26,7 @@ app.get('/game/checkserver.jsp', (req, res) => {
     //Forward request to the proper session servers
     request(`http://session.minecraft.net/game/checkserver.jsp?user=${req.query.user}&serverId=${req.query.serverId}`).pipe(res);
 })
-app.get('/MinecraftSkins/:username', (req, res) => {
+app.get(['/MinecraftSkins/:username', '/skin/:username'], (req, res) => {
     console.log('Getting skin for '+req.params.username.slice(0, -4));
 
     //Forward skin request to minotar to fix skins
