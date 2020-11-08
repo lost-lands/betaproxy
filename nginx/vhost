@@ -4,8 +4,6 @@ server {
 	server_tokens off;	
 
     location /game/checkserver.jsp {
-	allow 142.44.179.80;
-	deny all;
 	proxy_pass http://session.minecraft.net/game/checkserver.jsp;
     }
 
