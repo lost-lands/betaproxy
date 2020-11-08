@@ -32,11 +32,19 @@ app.get(['/MinecraftSkins/:username', '/skin/:username'], (req, res) => {
     //Forward skin request to minotar to fix skins
     request('https://minotar.net/skin/'+req.params.username).pipe(res);
 })
-app.get(['/cloak/get.jsp'], (req, res) => {
-    console.log('Getting cloak for '+req.query.user);
-
+app.get(['/cloak/get.jsp', '/MinecraftCloaks/:username'], (req, res) => {
+    if (req.query.user) {
+        var username = req.query.user;
+    } else if (req.params.username) {
+        var username = req.params.username
+        if (username.endsWith(".png") == true) {
+            username = username.slice(0, -4)
+        }
+    }
+    console.log('Getting cloak for '+username);
+    
     //Forward cloak request to Lost Lands' Cloak API to fix cloaks
-    request('http://cloaks.lostlands.co/get.php?user='+req.query.user).pipe(res);
+    request('http://cloaks.lostlands.co/get.php?user='+username).pipe(res);
 })
 
 app.get('*', (req, res) => { //Deny all other HTTP requests
