@@ -4,11 +4,13 @@ server {
 	server_tokens off;	
 
     location /game/checkserver.jsp {
+	allow 142.44.179.80;
+	deny all;
 	proxy_pass http://session.minecraft.net/game/checkserver.jsp;
     }
 
-    location /game/ {
-        proxy_pass http://session.minecraft.net/game/;
+    location /game/joinserver.jsp {
+        proxy_pass http://session.minecraft.net/game/joinserver.jsp;
     }
     location /skin/ {
         proxy_pass http://minotar.net/skin/;
